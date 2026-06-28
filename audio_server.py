@@ -22,7 +22,7 @@ def stream():
     response = flask.Response(generate(), mimetype='audio/mpeg')
     response.headers['Content-Type'] = 'audio/mpeg'
     response.headers['transferMode.dlna.org'] = 'Streaming'
-    response.headers['contentFeatures.dlna.org'] = 'DLNA.ORG_PN=MP3;DLNA.ORG_OP=01;DLNA.ORG_FLAGS=01700000000'
+    response.headers['contentFeatures.dlna.org'] = 'DLNA.ORG_PN=MP3;DLNA.ORG_OP=01;DLNA.ORG_FLAGS=0170000'
     return response
 
 if __name__ == '__main__':

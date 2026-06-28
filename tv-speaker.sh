@@ -16,7 +16,7 @@ SERVER_PID=$!
 sleep 2
 
 echo "Stopping any activity if any"
-curl -X POST http://192.168.18.33:2870/control/RenderingControl \
+curl -X POST http://$TV_IP:2870/control/RenderingControl \
 -H 'Content-Type: text/xml; charset="utf-8"' \
 -H 'SOAPAction: "urn:schemas-upnp-org:service:RenderingControl:1#SetVolume"' \
 -d '<?xml version="1.0"?>
@@ -32,7 +32,7 @@ curl -X POST http://192.168.18.33:2870/control/RenderingControl \
 
 echo "📺 Telling TV to tune in..."
 curl -v -X POST \
-http://192.168.18.33:2870/control/AVTransport \
+http://$TV_IP:2870/control/AVTransport \
 -H 'Content-Type: text/xml; charset="utf-8"' \
 -H 'SOAPAction: "urn:schemas-upnp-org:service:AVTransport:1#SetAVTransportURI"' \
 --data-binary @- <<'EOF'
